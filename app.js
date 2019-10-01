@@ -25,21 +25,40 @@ const addUser = async (email, username) => {
 
 const addReminder = async (reminder) => {
     try {
-        const queryStringAdd = `INSERT INTO reminders(reminder) VALUES('${reminder}')`;
-        let data = await promisifiedQuery(queryStringAdd);
-        console.log(data);
+        // let getId = `SELECT id FROM persons`;
+        // let personsId = await promisifiedQuery(getId);
+        // if (personsId) {
+        // , '${personsId}'
+        // , persons_id
+            const queryStringAdd = `INSERT INTO reminders(reminder) VALUES('${reminder}')`;
+            let data = await promisifiedQuery(queryStringAdd);
+            console.log(data);
+        // }
         
     } catch (error) {
         console.log(error.sqlMessage);
     };
 };
 
+const removeReminder = async (id) => {
+    try {
+        const queryStringDelete = `DELETE FROM reminders WHERE id = ${id}`;
+        let data = await promisifiedQuery(queryStringDelete);
+        console.log(data);
+    } catch(e) {
+        console.log(e.sqlMessage);
+    }
+};
+
 // addUser('mo@hotmail.cougar', 'hlmwilki');
-// addReminder('need to buy cat food')
+addReminder('need to buy dog food');
+// removeReminder(1);
+
+
 
 module.exports = {
     
     addUser,
     addReminder,
 
-}
+};
