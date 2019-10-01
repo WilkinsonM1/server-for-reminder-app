@@ -35,7 +35,7 @@ const addReminder = async (reminder) => {
 };
 
 // addUser('mo@hotmail.cougar', 'hlmwilki');
-addReminder('need to buy cat food')
+// addReminder('need to buy cat food')
 
 module.exports = {
     
