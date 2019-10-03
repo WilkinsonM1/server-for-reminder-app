@@ -23,6 +23,8 @@ const addUser = async (email, username) => {
     }
 };
 
+
+
 const addReminder = async (reminder) => {
     try {
         // let getId = `SELECT id FROM persons`;
@@ -50,14 +52,28 @@ const removeReminder = async (id) => {
     }
 };
 
+const runQuery = async () => {
+    try {
+        let data = await promisifiedQuery('SELECT * FROM persons');
+        return data;
+        
+    } catch (e) {
+        console.log(e.sqlMessage);
+    }
+
+    connection.end();
+}
+
 // addUser('mo@hotmail.cougar', 'hlmwilki');
-addReminder('need to buy dog food');
-// removeReminder(1);
+// addReminder('need to buy dog food');
+// removeReminder(4);
 
 
 module.exports = {
     
     addUser,
     addReminder,
+    removeReminder,
+    runQuery
 
 };
