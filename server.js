@@ -24,6 +24,10 @@ app.get('/reminder', async(req,res)=>{
     res.send('POST request to the homepage');
 })
 
+app.get('/reminder-list', async (req, res)=>{
+    
+})
+
 app.listen(3003, () => {
     console.log('listening on port 3003');
 })
