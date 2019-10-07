@@ -64,9 +64,20 @@ const runQuery = async () => {
     connection.end();
 }
 
+const checkUser = async (username) => {
+    try {
+        let data = await promisifiedQuery(`SELECT username FROM persons WHERE username = '${username}';`);
+        console.log(data);
+        return data
+    } catch (e) {
+        console.log(e.sqlMessage);
+    }
+}
+
 // addUser('mo@hotmail.cougar', 'hlmwilki');
 // addReminder('need to buy dog food');
 // removeReminder(4);
+checkUser('resadf');
 
 
 
@@ -75,6 +86,7 @@ module.exports = {
     addUser,
     addReminder,
     removeReminder,
-    runQuery
+    runQuery,
+    checkUser
 
 };
