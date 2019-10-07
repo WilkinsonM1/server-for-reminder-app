@@ -91,7 +91,7 @@ const checkUser = async (username) => {
 // addUser('mo@hotmail.cougar', 'hlmwilki');
 // addReminder('need to buy dog food');
 // removeReminder(4);
-checkUser('resadf');
+// checkUser('m0m0');
 
 // listReminders(2);
 
