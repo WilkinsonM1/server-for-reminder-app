@@ -46,6 +46,7 @@ const listReminders = async (persons_id) => {
     try {
         const queryStringAdd = `SELECT reminder FROM reminders  JOIN persons ON persons.id=reminders.persons_id WHERE persons_id = ${persons_id};`
         let data = await promisifiedQuery(queryStringAdd)
+        console.log(data)
         return data
          //turn console log to return
     } catch (error) {
@@ -88,6 +89,7 @@ module.exports = {
     addUser,
     addReminder,
     removeReminder,
-    runQuery
+    runQuery,
+    listReminders
 
 };
