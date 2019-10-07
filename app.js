@@ -16,7 +16,7 @@ const addUser = async (email, username) => {
     try {
         const queryStringAdd = `INSERT INTO persons(email, username) VALUES('${email}', '${username}')`;
         let data = await promisifiedQuery(queryStringAdd);
-        console.log(data);
+        return data;
 
     } catch(e) {
         console.log(e.sqlMessage);
@@ -34,12 +34,25 @@ const addReminder = async (reminder) => {
         // , persons_id
             const queryStringAdd = `INSERT INTO reminders(reminder) VALUES('${reminder}')`;
             let data = await promisifiedQuery(queryStringAdd);
-            console.log(data);
+            return data;
         // }
-        
+        //turn console log to return
     } catch (error) {
         console.log(error.sqlMessage);
     };
+};
+
+const listReminders = async (persons_id) => {
+    try {
+        const queryStringAdd = `SELECT reminder FROM reminders  JOIN persons ON persons.id=reminders.persons_id WHERE persons_id = ${persons_id};`
+        let data = await promisifiedQuery(queryStringAdd)
+        console.log(data)
+        return data
+         //turn console log to return
+    } catch (error) {
+        console.log(error.sqlMessage);
+    };
+
 };
 
 const removeReminder = async (id) => {
@@ -47,6 +60,7 @@ const removeReminder = async (id) => {
         const queryStringDelete = `DELETE FROM reminders WHERE id = ${id}`;
         let data = await promisifiedQuery(queryStringDelete);
         console.log(data);
+         //turn console log to return
     } catch(e) {
         console.log(e.sqlMessage);
     }
@@ -79,7 +93,7 @@ const checkUser = async (username) => {
 // removeReminder(4);
 checkUser('resadf');
 
-
+// listReminders(2);
 
 module.exports = {
     
@@ -87,6 +101,8 @@ module.exports = {
     addReminder,
     removeReminder,
     runQuery,
-    checkUser
+    checkUser,
+    listReminders
+
 
 };
