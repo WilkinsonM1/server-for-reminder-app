@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { addUser, addReminder, runQuery, removeReminder } = require('./app');
+const { addUser, addReminder, runQuery, removeReminder, listReminders } = require('./app');
 
 const app = express();
 
@@ -25,7 +25,8 @@ app.get('/reminder', async(req,res)=>{
 })
 
 app.get('/reminder-list', async (req, res)=>{
-    
+    listReminders(req.query.persons_id);
+    res.send('POST request to the homepage')
 })
 
 app.listen(3003, () => {
