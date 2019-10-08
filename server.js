@@ -40,7 +40,7 @@ app.get("/reminder", async (req, res) => {
 
 app.get("/checkUser", async (req, res) => {
   let data = await checkUser(req.query.username);
-  res.send({ data: data[0].username });
+  res.send({ data: data[0].username});
 });
 
 app.get("/reminder-list", async (req, res) => {
