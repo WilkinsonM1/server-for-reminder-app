@@ -88,6 +88,15 @@ const checkUser = async (username) => {
     }
 }
 
+const getPersonsId = async (username) => {
+    try {
+        let data = await promisifiedQuery(`SELECT id FROM persons WHERE username = '${username}';`);
+        console.log(data);
+        return data
+    } catch (e) {
+        console.log(e.sqlMessage);
+    }
+}
 // addUser('mo@hotmail.cougar', 'hlmwilki');
 // addReminder('need to buy dog food');
 // removeReminder(4);
@@ -102,7 +111,8 @@ module.exports = {
     removeReminder,
     runQuery,
     checkUser,
-    listReminders
+    listReminders,
+    getPersonsId,
 
 
 };
