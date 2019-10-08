@@ -45,13 +45,13 @@ app.get("/checkUser", async (req, res) => {
 });
 
 app.get("/reminder-list", async (req, res) => {
-  listReminders(req.query.persons_id);
-  res.send("POST request to the homepage");
+  let data = await listReminders(req.query.persons_id);
+  res.send({data: data});
 });
 
 app.get("/checkUserId", async (req, res) => {
   let data = await getPersonsId(req.query.username);
-  res.send({ data: data[0].id});
+  res.send({ data: data[0].id });
 });
 
 app.listen(3003, () => {
