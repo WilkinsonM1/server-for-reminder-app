@@ -25,14 +25,14 @@ const addUser = async (email, username) => {
 
 
 
-const addReminder = async (reminder) => {
+const addReminder = async (reminder, persons_id) => {
     try {
         // let getId = `SELECT id FROM persons`;
         // let personsId = await promisifiedQuery(getId);
         // if (personsId) {
         // , '${personsId}'
         // , persons_id
-            const queryStringAdd = `INSERT INTO reminders(reminder) VALUES('${reminder}')`;
+            const queryStringAdd = `INSERT INTO reminders(reminder, persons_id) VALUES('${reminder}', '${persons_id}')`;
             let data = await promisifiedQuery(queryStringAdd);
             return data;
         // }
