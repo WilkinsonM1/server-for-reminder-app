@@ -35,7 +35,7 @@ app.get("/register", async (req, res) => {
 });
 
 app.get("/reminder", async (req, res) => {
-  addReminder(req.query.reminder);
+  await addReminder(req.query.reminder, req.query.persons_id);
   res.send("POST request to the homepage");
 });
 
