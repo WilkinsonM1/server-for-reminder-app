@@ -11,6 +11,8 @@ const {
 } = require("./app");
 
 const app = express();
+const port = process.env.PORT || 3003;
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -54,6 +56,6 @@ app.get("/checkUserId", async (req, res) => {
   res.send({ data: data[0].id });
 });
 
-app.listen(3003, () => {
+app.listen(port, () => {
   console.log("listening on port 3003");
 });
