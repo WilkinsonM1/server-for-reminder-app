@@ -100,8 +100,8 @@ const getPersonsId = async (username) => {
         console.log(e.sqlMessage);
     }
 }
-// addUser('mo@hotmail.cougar', 'hlmwilki');
-// addReminder('need to buy dog food');
+// addUser('mo-wilkinson@mayo.com', 'mo');
+// addReminder('need to buy dog food', '1');
 // removeReminder(4);
 // checkUser('m0m0');
 
