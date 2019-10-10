@@ -2,11 +2,14 @@ const mysql = require('mysql');
 const { promisify } = require('util');
 
 
+
+
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'password',
-    database: 'userReminders'
+    host: 'remotemysql.com',
+    user: 'KX6mu3NhYs',
+    password: 'MdMc6mt0uy',
+    database: 'KX6mu3NhYs',
+    port: 3306,
 });
 
 const promisifiedQuery = promisify(connection.query).bind(connection); 
